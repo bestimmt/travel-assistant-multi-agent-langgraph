@@ -1,11 +1,11 @@
 import shutil
 import uuid
-from _zero_shot_agent.graph import build_graph_zero_shot
+from chatbotV01.graph import build_graph
 from tools.helpers import _print_event
 from utils.constnants import DB, BACKUP
 
 # lets instantiate our compiled graph
-zero_shot_graph = build_graph_zero_shot()
+graph = build_graph()
 
 # Let's create an example conversation a user might have with the assistant
 tutorial_questions = [
@@ -40,11 +40,10 @@ config = {
 }
 
 _printed = set()
+question = "Hi there, what time is my flight?"
 
 if __name__ == "__main__":
-    for question in tutorial_questions:
-        events = zero_shot_graph.stream(
-            {"messages": ("user", question)}, config, stream_mode="values"
-        )
-        for event in events:
-            _print_event(event, _printed)
+    events = graph.stream({"messages": ("user", question)}, config, stream_mode="debug")
+
+    for event in events:
+        _print_event(event, _printed)

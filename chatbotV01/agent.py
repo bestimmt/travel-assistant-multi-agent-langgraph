@@ -1,18 +1,9 @@
-from langchain_openai import ChatOpenAI
-from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import Runnable, RunnableConfig
 from datetime import datetime
-from _zero_shot_agent.state import State
+from chatbotV01.state import State
 from utils.constnants import LLM
 from tools.helpers import all_tools
-
-
-"""
-Next, define the assistant function. This function takes the graph state, \
-formats it into a prompt, and then calls an LLM for it to predict the best response.
-"""
-zero_shot_agent_tools = all_tools()
 
 
 class Assistant:
@@ -39,7 +30,7 @@ class Assistant:
         return {"messages": result}
 
 
-def create_runnable_zero_shot(zero_shot_agent_tools):
+def create_runnable():
 
     primary_assistant_prompt = ChatPromptTemplate.from_messages(
         [
@@ -57,6 +48,8 @@ def create_runnable_zero_shot(zero_shot_agent_tools):
     ).partial(
         time=datetime.now()
     )  # we use .partial method to fill the prompt partially with some variables. in this case we fill the prompt with current time
+
+    zero_shot_agent_tools = all_tools()
 
     # runnable taht will be wrapped by the Assistant class
     runnable = primary_assistant_prompt | LLM.bind_tools(zero_shot_agent_tools)

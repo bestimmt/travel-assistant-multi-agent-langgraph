@@ -1,27 +1,27 @@
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import END, StateGraph, START
 from langgraph.prebuilt import tools_condition
-from _zero_shot_agent.state import State
-from _zero_shot_agent.agent import (
+from chatbotV01.state import State
+from chatbotV01.agent import (
     Assistant,
-    create_runnable_zero_shot,
-    zero_shot_agent_tools,
+    create_runnable,
 )
-from tools.helpers import create_tool_node_with_fallback
+from tools.helpers import create_tool_node_with_fallback, all_tools
 
 
-def build_graph_zero_shot():
+def build_graph():
     builder = StateGraph(State)
 
+    assistant_runnable = create_runnable()
+    assistant = Assistant(runnable=assistant_runnable)
+    tools_ = all_tools()
     # define nodes: these do the work
     builder.add_node(
         node="assistant",
-        action=Assistant(runnable=create_runnable_zero_shot(zero_shot_agent_tools)),
+        action=assistant,
     )
 
-    builder.add_node(
-        node="tools", action=create_tool_node_with_fallback(tools=zero_shot_agent_tools)
-    )
+    builder.add_node(node="tools", action=create_tool_node_with_fallback(tools=tools_))
 
     # define edges:
     builder.add_edge(

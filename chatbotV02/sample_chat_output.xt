@@ -1,0 +1,180 @@
+Database resetting for new run.........
+DB already exists at C:\Users\fcali\OneDrive\Masaüstü\DATA_SCIENCE\LLMs\TRAVEL_ASSISTANT_MULTI_AGENT\database\travel2.sqlite. Skipping download...
+DB connection established to C:\Users\fcali\OneDrive\Masaüstü\DATA_SCIENCE\LLMs\TRAVEL_ASSISTANT_MULTI_AGENT\database\travel2.sqlite
+Bookings table, timestamps shifted by 103 days 05:27:00.904193 days
+Flights table, timestamps shifted by 103 days 05:27:00.904193 days
+All timestamp changes overwritten to DB: C:\Users\fcali\OneDrive\Masaüstü\DATA_SCIENCE\LLMs\TRAVEL_ASSISTANT_MULTI_AGENT\database\travel2.sqlite
+Existing vectorstore loaded successfully with type: VectorStore
+Retriever instantiated = 'similarity: 2'
+All preparation steps completed successfully.
+........................................................................................................................................................................................................
+================================ Human Message =================================
+
+Hi there, what time is my flight?
+================================== Ai Message ==================================
+
+Your flight LX0112 is scheduled to depart from Charles de Gaulle Airport (CDG) at 17:36 (local time) and is expected to arrive at EuroAirport Basel-Mulhouse-Freiburg (BSL) at 19:06 (local time).
+
+Since the current time is 17:32, your flight will be departing shortly.
+================================ Human Message =================================
+
+Am i allowed to update my flight to something sooner? I want to leave later today.
+================================== Ai Message ==================================
+Tool Calls:
+  lookup_policy (call_TvGxSYdc5KmFIICdRtyVEJvy)
+ Call ID: call_TvGxSYdc5KmFIICdRtyVEJvy
+  Args:
+    query: flight changes policy for Swiss Airlines
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+Update my flight to sometime next week then
+================================== Ai Message ==================================
+Tool Calls:
+  search_flights (call_cDl64nrXlT5NTVPEB8T37GDr)
+ Call ID: call_cDl64nrXlT5NTVPEB8T37GDr
+  Args:
+    departure_airport: CDG
+    arrival_airport: BSL
+    start_time: 2024-08-14T00:00:00
+    end_time: 2024-08-21T23:59:59
+    limit: 5
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+The next available option is great
+================================== Ai Message ==================================
+Tool Calls:
+  fetch_user_flight_information (call_jyEtfAk3R53jtCv5tXuWqat2)
+ Call ID: call_jyEtfAk3R53jtCv5tXuWqat2
+  Args:
+  cancel_ticket (call_OU3ZKWlHE8r2nXFqqfgUTp4z)
+ Call ID: call_OU3ZKWlHE8r2nXFqqfgUTp4z
+  Args:
+    ticket_no: 7240005432906569
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+what about lodging and transportation?
+================================== Ai Message ==================================
+
+Could you please provide me with the following details so I can assist you with lodging and transportation options?
+
+1. **Lodging:**
+   - What city or area are you looking to stay in?
+   - Do you have specific dates for check-in and check-out?
+   - What type of hotel or price tier are you considering (e.g., luxury, midscale, budget)?
+
+2. **Transportation:**
+   - What location do you need transportation from (e.g., airport, hotel)?
+   - What type of transportation are you looking for (car rental, shuttle service, etc.)?
+   - Any specific preferences for car rental companies or types?
+
+With this information, I can provide you with suitable options!
+================================ Human Message =================================
+
+Yeah i think i'd like an affordable hotel for my week-long stay (7 days). And I'll want to rent a car.
+================================== Ai Message ==================================
+Tool Calls:
+  search_hotels (call_st43fgE9jaR4xTjFsKbyG7el)
+ Call ID: call_st43fgE9jaR4xTjFsKbyG7el
+  Args:
+    location: Basel
+    checkin_date: 2024-08-15
+    checkout_date: 2024-08-22
+    price_tier: Budget
+  search_car_rentals (call_XKtVdcO9r3NLoptwMAjQsBJL)
+ Call ID: call_XKtVdcO9r3NLoptwMAjQsBJL
+  Args:
+    location: Basel
+    price_tier: Budget
+    start_date: 2024-08-15
+    end_date: 2024-08-22
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+OK could you place a reservation for your recommended hotel? It sounds nice.
+================================== Ai Message ==================================
+Tool Calls:
+  book_hotel (call_grxstljUrTTjy1FewxhnAohE)
+ Call ID: call_grxstljUrTTjy1FewxhnAohE
+  Args:
+    hotel_id: 1
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+yes go ahead and book anything that's moderate expense and has availability.
+================================== Ai Message ==================================
+Tool Calls:
+  search_car_rentals (call_JOksQ8hLf7YtGasF5SXVdj96)
+ Call ID: call_JOksQ8hLf7YtGasF5SXVdj96
+  Args:
+    location: Basel
+    price_tier: Midrange
+    start_date: 2024-08-15
+    end_date: 2024-08-22
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+Now for a car, what are my options?
+================================== Ai Message ==================================
+
+Here are your options for car rentals in Basel based on the available information:
+
+1. **Europcar**
+   - **Location:** Basel
+   - **Price Tier:** Economy
+
+2. **Avis**
+   - **Location:** Basel
+   - **Price Tier:** Luxury
+
+3. **Enterprise**
+   - **Location:** Basel
+   - **Price Tier:** Premium
+
+4. **Thrifty**
+   - **Location:** Basel
+   - **Price Tier:** Midsize (This is the option that has already been booked for you.)
+
+If you want more specific details about the types of cars available under each rental company or if you want to know about specific features or prices for a different rental, please let me know, and I can fetch that information for you!
+================================ Human Message =================================
+
+Awesome let's just get the cheapest option. Go ahead and book for 7 days
+================================== Ai Message ==================================
+Tool Calls:
+  book_car_rental (call_SyKSaWqsrE0wOwSZ7NpKL1nR)
+ Call ID: call_SyKSaWqsrE0wOwSZ7NpKL1nR
+  Args:
+    rental_id: 1
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
+
+y
+================================ Human Message =================================
+
+Cool so now what recommendations do you have on excursions?
+================================== Ai Message ==================================
+Tool Calls:
+  search_trip_recommendations (call_7325dpwdHObV4sLVnHxCUJ7A)
+ Call ID: call_7325dpwdHObV4sLVnHxCUJ7A
+  Args:
+    location: Basel
+Do you approve of the above actions? Type 'y' to continue; otherwise, explain your requested changed.
