@@ -1,10 +1,7 @@
-fastapi==0.111.1
-uvicorn==0.30.3
 python-dotenv==1.0.1
 pandas==2.2.2
 Ipython==8.26.0
 ipykernel==6.29.5
-
 langchain==0.2.12
 langgraph==0.2.3
 langsmith==0.1.98

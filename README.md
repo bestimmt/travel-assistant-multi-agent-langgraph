@@ -1,39 +1,53 @@
-# STILL UNDER DEVELOPMENT...
+# Digital `Travel Assistant` 🤖 with LangGraph
 
-Wellcome to your Swiss Airlines Digital `Travel Assistant`
+This repository contains a modular and compact implementation of an end-to-end multi-agent architecture for a travel assistant chatbot, inspired by the [LangGraph's Travel Assistant project](https://langchain-ai.github.io/langgraph/tutorials/customer-support/customer-support/). The original notebook has been transformed into a fully-fledged chatbot application using Object-Oriented Programming (OOP) principles such as abstraction and encapsulation.
 
-This repo is a product ready version of [langgraph's](https://langchain-ai.github.io/langgraph/tutorials/customer-support/customer-support/) travel assistant project notebook.  
-It's an implementation of end-to-end multi-agent architecture.  
-The data processing and database operations
-Multi-agent part focused  
-Many changes exist  
-Designed as a product
+## Chatbot Versions
 
-# Chatbot Versions:
+- **Version 1**: A simpler version equipped with 18 tools.
+- **Version 2**: Introduces Human-in-the-loop functionality and adds a data validation step in the `GraphState`.
+- **Version 3**: Tools are divided into two groups—sensitive and safe. The flow is routed accordingly, with human approval required for sensitive tasks.
+- **Version 4**: A multi-agent architecture featuring separate specialized agents for different tasks and an orchestrator to manage the workflow.
 
-Version-1: Is a simpler form that equipped with 18 tools
-Version-2: Human-in-the-loop functionality added and additional step for data validation in GraphState
-Version-3: Tools divided into 2 groups: sensitive and safe ones, so the flow is routed to tools or human approval is required.
-Version-4:
+## How to Use
 
-# Dependencies: API Keys
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/fatih-ml/travel-assistant-multi-agent-langgraph.git
+   ```
+2. **Install the required packages**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Set up your environment**:
+   - Prepare your API keys in a `.env` file.
+   - Configure your file paths and LLM settings in `.env` and `utils/constnants.py`.
+   - you can use PYTHONPATH for easing imports
+4. **Set up the database**:
+   ```bash
+   python utils/prepare_database.py
+   ```
+   This will initialize the SQL database and the Chroma VectorDatabase.
+5. **Run any chatbot version**:
+   ```bash
+   python chatbotV04_multiagents/chatbot.py
+   ```
+6. **Experiment and Evaluate**:
+   - Ask different questions in conversations.
+   - Experiment with different LLMs and temperature settings.
+   - Try out different vector databases and retrieval methods.
+   - Modify and test different prompts.
 
-the project is in need of some API keys stored in .env file:
-OpenAI API KEY
-Tavily API KEY
-Langchain API KEY for tracing [optional]
+## Dependencies: API Keys
 
-# Database Setup
+Ensure that the following API keys are stored in your `.env` file:
 
-///
+- **OpenAI API KEY**
+- **Tavily API KEY**
+- **LangChain API KEY** (for tracing with LangSmith) [optional]
 
-# WebApp Design
+## Contributing
 
-# How to use
+Feel free to contribute by opening issues, submitting pull requests, or asking questions. Your feedback is invaluable!
 
-1. Clone the repository
-2. Install the dependencies by running `pip install -r requirements.txt`
-3. Run database/prepare_database.py
-4. ....
-
-Thanks for visiting...
+Thank you for visiting and exploring the project!

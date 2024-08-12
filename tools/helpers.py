@@ -115,3 +115,21 @@ def part_3_sensitive_tools():
         cancel_excursion,
     ]
     return tool_list
+
+
+part_4_update_flight_safe_tools = [search_flights]
+part_4_update_flight_sensitive_tools = [update_ticket_to_new_flight, cancel_ticket]
+part_4_book_hotel_safe_tools = [search_hotels]
+part_4_book_hotel_sensitive_tools = [book_hotel, update_hotel, cancel_hotel]
+part_4_book_excursion_safe_tools = [search_trip_recommendations]
+part_4_book_excursion_sensitive_tools = [
+    book_excursion,
+    update_excursion,
+    cancel_excursion,
+]
+part_4_book_car_rental_safe_tools = [search_car_rentals]
+part_4_book_car_rental_sensitive_tools = [
+    book_car_rental,
+    update_car_rental,
+    cancel_car_rental,
+]
