@@ -51,3 +51,4 @@ Ensure that the following API keys are stored in your `.env` file:
 Feel free to contribute by opening issues, submitting pull requests, or asking questions. Your feedback is invaluable!
 
 Thank you for visiting and exploring the project!
+...
